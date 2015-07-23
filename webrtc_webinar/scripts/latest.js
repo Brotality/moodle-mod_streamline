@@ -113,6 +113,7 @@
                         name: "video"
                     })
                 }), this.webrtc.on("localScreen", function(e) {
+                    alert("on localScreen");
                     var t = document.createElement("video"),
                         n = u.getRemoteVideoContainer();
                     t.oncontextmenu = function() {

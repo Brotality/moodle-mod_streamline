@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="webrtc_webinar/css/main.css" type="text/css">
-<script src="http://simplewebrtc.com/latest.js"></script>
-<?php include('server.php'); ?>
+<script src="webrtc_webinar/scripts/latest.js"></script>
 
 <div>
 	<button id="startButton">Start</button>
 	<button id="stopButton">Stop</button>
+
+	<button id="shareScreenButton">Share Screen</button>
+	<button id="stopSharingButton">Stop Sharing</button>
+
 </div>
 
 <video id="localVideo"></video>
@@ -13,14 +16,17 @@
 <script src="webrtc_webinar/scripts/webinar_functions.js"></script>
 
 <script type="text/javascript">
+	//http://simplewebrtc.com/latest.js
 	/* variables and function defined in webinar_functions.js */
 	startButton.addEventListener("click", startLiveStream);
 	stopButton.addEventListener("click", stopLiveStream);
-	
-	ids = <?= json_encode(get_ids()); ?>;
+	shareScreenButton.addEventListener("click", shareScreen);
+	stopSharingButton.addEventListener("click", stopSharing);
+
 	user = <?= json_encode($USER); ?>;
 	course = <?= json_encode($COURSE); ?>;
+	isTeacher = <?= json_encode(user_has_role_assignment($USER->id, 3)); ?>;
 	
-	toggleButtons();
-	connectToCourseLiveStream(course.shortname);
+	initialiseElements();
+	connectToCourseLiveStream();
 </script>
