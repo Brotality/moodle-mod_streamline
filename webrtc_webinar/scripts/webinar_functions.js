@@ -11,21 +11,21 @@ var remoteVideo = document.getElementById("remoteVideo");
 var startButton = document.getElementById("startButton");
 var stopButton = document.getElementById("stopButton");
 
-var shareScreenButton = document.getElementById("shareScreenButton");
-var stopSharingButton = document.getElementById("stopSharingButton");
+//var shareScreenButton = document.getElementById("shareScreenButton");
+//var stopSharingButton = document.getElementById("stopSharingButton");
 /* Functions */
 
 function initialiseElements(){
     if(isTeacher == false){
         startButton.style.display = "none";
         stopButton.style.display = "none";
-        shareScreenButton.style.display = "none";
-        stopSharingButton.style.display = "none";
+        //shareScreenButton.style.display = "none";
+        //stopSharingButton.style.display = "none";
         localVideo.style.display = "none";
     } else {
         stopButton.style.display = "none";
-        shareScreenButton.style.display = "none";
-        stopSharingButton.style.display = "none";
+        //shareScreenButton.style.display = "none";
+        //stopSharingButton.style.display = "none";
     }
 }
 
@@ -57,7 +57,7 @@ function startLiveStream(){
     // start local media access
     webrtc.startLocalVideo();
     toggleButtons([startButton, stopButton]);
-    shareScreenButton.style.display = "block";
+    //shareScreenButton.style.display = "block";
 }
 
 function stopLiveStream(){
@@ -68,9 +68,10 @@ function stopLiveStream(){
         webrtc.stopLocalVideo();
     }
     toggleButtons([startButton, stopButton]);
-    shareScreenButton.style.display = "none";
+    //shareScreenButton.style.display = "none";
 }
 
+/*
 function shareScreen(){
     webrtc.shareScreen();
     toggleButtons([shareScreenButton, stopSharingButton]);
@@ -80,3 +81,4 @@ function stopSharing(){
     webrtc.stopScreenShare();
     toggleButtons([shareScreenButton, stopSharingButton]);
 }
+*/

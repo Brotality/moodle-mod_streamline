@@ -50,5 +50,3 @@ AND (roleid = 5 OR roleid = 3 );
 // 3 is for lecturers
 
 */
-
-<?php include('server.php'); ?>
